@@ -5,9 +5,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import turnoXpress.dtos.AppointmentRequest;
 import turnoXpress.dtos.LoginRequest;
 import turnoXpress.dtos.RegisterRequest;
 import turnoXpress.entities.Patient;
+import turnoXpress.services.AppointmentService;
 import turnoXpress.services.UserService;
 
 @RestController
@@ -16,6 +18,10 @@ public class LoginController {
 
     @Autowired
     private UserService userService;
+    @Autowired
+    private AppointmentService appointmentService;
+
+
     @PostMapping("/register")
     public ResponseEntity<String> register(@RequestBody RegisterRequest registerRequest) throws Exception {
             userService.createPatient(registerRequest);
@@ -25,6 +31,7 @@ public class LoginController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al crear usuario");
         } */
     }
+
 
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody LoginRequest loginRequest) {
@@ -37,6 +44,17 @@ public class LoginController {
         }
     }
 
+    @PostMapping("/appointment")
+    public ResponseEntity<String> appointment(@RequestBody AppointmentRequest appointmentRequest) {
+        ResponseEntity<String> result;
+        try {
+            appointmentService.createAppointment(appointmentRequest);
+            result = ResponseEntity.ok("Turno creado exitosamente");
+        } catch (Exception e) {
+            result = null;
+        }
+        return result;
+    }
 
     @PutMapping("/{userId}")
     public ResponseEntity<String> delete(@PathVariable Long userId) {

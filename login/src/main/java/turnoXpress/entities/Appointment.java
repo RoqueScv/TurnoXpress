@@ -4,28 +4,23 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 @Entity
+@Table(name = "appointments")
 public class Appointment implements Serializable {
-
     @Id
     @GeneratedValue
     private int id_app;
-
-    @ManyToOne
-    @JoinColumn(name = "id_user")
+    @Column(name="patient")
     private Patient patient;
-
-    @ManyToOne
-    @JoinColumn(name = "id_medic")
+    @Column(name="medic")
     private Medic medic;
-
+    @Column(name= "date")
     private LocalDate date;
+    @Column(name= "time")
     private String time;
+    @Column(name= "status")
     private String status;
 
-    // Constructor y getters
-
     public Appointment() {
-        // Constructor vacío necesario para JPA
     }
 
     public Appointment(Patient patient, Medic medic, LocalDate date, String time, String status) {
@@ -35,11 +30,9 @@ public class Appointment implements Serializable {
         this.time = time;
         this.status = status;
     }
-
     public int getId_app() {
         return id_app;
     }
-
     public LocalDate getDate() {
         return date;
     }
@@ -64,6 +57,22 @@ public class Appointment implements Serializable {
         this.status = status;
     }
 
-    // Los getters y setters para id_user y medic no se proporcionan públicamente
+    public Patient getPatient() {
+        return patient;
+    }
+
+    public void setPatient(Patient patient) {
+        this.patient = patient;
+    }
+
+    public Medic getMedic() {
+        return medic;
+    }
+
+    public void setMedic(Medic medic) {
+        this.medic = medic;
+    }
+
+    // Los getters y setters para id_user y medic no se deberian proporcionar públicamente
     // para limitar el acceso a estos atributos relacionados con otras entidades.
 }
