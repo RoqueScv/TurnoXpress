@@ -6,15 +6,15 @@ import turnoXpress.entities.Patient;
 import java.time.LocalDate;
 
 public class AppointmentRequest {
-    private Patient patient;
-    private Medic medic;
-    private LocalDate date;
+    private String patient;
+    private String medic;
+    private String date;
     private String time;
     private String status;
 
     public AppointmentRequest() {
     }
-    public AppointmentRequest(Patient patient, Medic medic, LocalDate date, String time, String status) {
+    public AppointmentRequest(String patient, String medic, String date, String time, String status) {
         this.patient = patient;
         this.medic = medic;
         this.date = date;
@@ -22,27 +22,27 @@ public class AppointmentRequest {
         this.status = status;
     }
 
-    public Patient getPatient() {
+    public String getPatient() {
         return patient;
     }
 
-    public void setPatient(Patient patient) {
+    public void setPatient(String patient) {
         this.patient = patient;
     }
 
-    public Medic getMedic() {
+    public String getMedic() {
         return medic;
     }
 
-    public void setMedic(Medic medic) {
+    public void setMedic(String medic) {
         this.medic = medic;
     }
 
-    public LocalDate getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

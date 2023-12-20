@@ -15,11 +15,11 @@ public class Appointment implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_app;
     @Column(name="patient")
-    private Patient patient;
+    private String patient;
     @Column(name="medic")
-    private Medic medic;
+    private String medic;
     @Column(name= "date")
-    private LocalDate date;
+    private String date;
     @Column(name= "time")
     private String time;
     @Column(name= "status")
@@ -28,7 +28,7 @@ public class Appointment implements Serializable {
     public Appointment() {
     }
 
-    public Appointment(Patient patient, Medic medic, LocalDate date, String time, String status) {
+    public Appointment(String patient, String medic, String date, String time, String status) {
         this.patient = patient;
         this.medic = medic;
         this.date = date;
@@ -38,11 +38,11 @@ public class Appointment implements Serializable {
     public int getId_app() {
         return id_app;
     }
-    public LocalDate getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
@@ -62,19 +62,19 @@ public class Appointment implements Serializable {
         this.status = status;
     }
 
-    public Patient getPatient() {
+    public String getPatient() {
         return patient;
     }
 
-    public void setPatient(Patient patient) {
+    public void setPatient(String patient) {
         this.patient = patient;
     }
 
-    public Medic getMedic() {
+    public String getMedic() {
         return medic;
     }
 
-    public void setMedic(Medic medic) {
+    public void setMedic(String medic) {
         this.medic = medic;
     }
 

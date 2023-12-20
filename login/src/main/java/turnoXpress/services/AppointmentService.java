@@ -7,6 +7,9 @@ import turnoXpress.dtos.AppointmentRequest;
 import turnoXpress.entities.Appointment;
 import turnoXpress.repositories.AppointmentRepository;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class AppointmentService {
     @Autowired
@@ -21,6 +24,11 @@ public class AppointmentService {
     public void createAppointment(AppointmentRequest appointmentRequest){
         Appointment appointment = new Appointment(appointmentRequest.getPatient(), appointmentRequest.getMedic(), appointmentRequest.getDate(), appointmentRequest.getTime(), appointmentRequest.getStatus());
         appointmentRepository.save(appointment);
+    }
+    public ArrayList<Appointment> retriveAppointments() {
+
+        return (ArrayList<Appointment>)appointmentRepository.findAll();
+       //return List<AppointmentRequest> = appointmentRepository.findAll();
     }
 
 }
