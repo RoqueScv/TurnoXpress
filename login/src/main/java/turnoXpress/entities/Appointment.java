@@ -1,13 +1,18 @@
 package turnoXpress.entities;
 import jakarta.persistence.*;
+
+import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDate;
 
 @Entity
 @Table(name = "appointments")
 public class Appointment implements Serializable {
+
+    @Serial
+    private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_app;
     @Column(name="patient")
     private Patient patient;

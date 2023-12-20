@@ -42,14 +42,14 @@ public class WebConfig {
         http
                 .csrf(config -> config.disable()) // deshabilita csrf(cross-site request forgery) que viene por defecto
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/css/**", "/js/**", "/api/v1/login", "/api/v1/register", "/api/v1/appointment").permitAll()
+                        .requestMatchers("/css/**", "/js/**", "/api/v1/login","/api/v3/appointment","/api/v2/register").permitAll()
                         .requestMatchers("/admin").hasRole(Role.ADMIN.toString())
                      .requestMatchers("/").hasAnyRole(
                               Role.ADMIN.toString(), Role.USER.toString())
                        .anyRequest().authenticated()
                         )
            //    .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) // no se mantiene registro de la sesion, HASTA NO TENER JWT NO SE USA :)
-               //.formLogin(Customizer.withDefaults())
+            //   .formLogin(Customizer.withDefaults())
                 .logout(logout -> logout
                         .deleteCookies("JSESSIONID")
                         .invalidateHttpSession(true));
