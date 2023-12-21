@@ -11,15 +11,25 @@ public class AppointmentRequest {
     private String date;
     private String time;
     private String status;
+    private String hospital;
 
     public AppointmentRequest() {
     }
-    public AppointmentRequest(String patient, String medic, String date, String time, String status) {
+    public AppointmentRequest(String patient, String medic, String date, String time, String status, String hospital) {
         this.patient = patient;
         this.medic = medic;
         this.date = date;
         this.time = time;
         this.status = status;
+        this.hospital = hospital;
+    }
+
+    public String getHospital() {
+        return hospital;
+    }
+
+    public void setHospital(String hospital) {
+        this.hospital = hospital;
     }
 
     public String getPatient() {

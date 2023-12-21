@@ -14,8 +14,8 @@ public class Appointment implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_app;
-    @Column(name="patient")
-    private String patient;
+    @Column(name="speciality")
+    private String speciality;
     @Column(name="medic")
     private String medic;
     @Column(name= "date")
@@ -25,15 +25,19 @@ public class Appointment implements Serializable {
     @Column(name= "status")
     private String status;
 
+    @Column(name="hospital")
+    private String hospital;
+
     public Appointment() {
     }
 
-    public Appointment(String patient, String medic, String date, String time, String status) {
-        this.patient = patient;
+    public Appointment(String speciality, String medic, String date, String time, String status, String hospital) {
+        this.speciality = speciality;
         this.medic = medic;
         this.date = date;
         this.time = time;
         this.status = status;
+        this.hospital = hospital;
     }
     public int getId_app() {
         return id_app;
@@ -62,12 +66,12 @@ public class Appointment implements Serializable {
         this.status = status;
     }
 
-    public String getPatient() {
-        return patient;
+    public String getSpeciality() {
+        return speciality;
     }
 
-    public void setPatient(String patient) {
-        this.patient = patient;
+    public void setSpeciality(String speciality) {
+        this.speciality = speciality;
     }
 
     public String getMedic() {
@@ -78,6 +82,13 @@ public class Appointment implements Serializable {
         this.medic = medic;
     }
 
-    // Los getters y setters para id_user y medic no se deberian proporcionar públicamente
+    public String getHospital() {
+        return hospital;
+    }
+
+    public void setHospital(String hospital) {
+        this.hospital = hospital;
+    }
+// Los getters y setters para id_user y medic no se deberian proporcionar públicamente
     // para limitar el acceso a estos atributos relacionados con otras entidades.
 }
