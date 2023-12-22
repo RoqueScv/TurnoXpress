@@ -6,7 +6,7 @@ import turnoXpress.entities.Patient;
 import java.time.LocalDate;
 
 public class AppointmentRequest {
-    private String patient;
+    private String speciality;
     private String medic;
     private String date;
     private String time;
@@ -16,7 +16,7 @@ public class AppointmentRequest {
     public AppointmentRequest() {
     }
     public AppointmentRequest(String patient, String medic, String date, String time, String status, String hospital) {
-        this.patient = patient;
+        this.speciality = patient;
         this.medic = medic;
         this.date = date;
         this.time = time;
@@ -33,11 +33,11 @@ public class AppointmentRequest {
     }
 
     public String getPatient() {
-        return patient;
+        return speciality;
     }
 
     public void setPatient(String patient) {
-        this.patient = patient;
+        this.speciality = patient;
     }
 
     public String getMedic() {
