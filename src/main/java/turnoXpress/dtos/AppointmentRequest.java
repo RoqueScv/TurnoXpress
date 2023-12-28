@@ -36,8 +36,8 @@ public class AppointmentRequest {
         return speciality;
     }
 
-    public void setSpeciality(String patient) {
-        this.speciality = patient;
+    public void setSpeciality(String speciality) {
+        this.speciality = speciality;
     }
 
     public String getMedic() {
